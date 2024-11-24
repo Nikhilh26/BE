@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+.calendar-container {
+  position: relative;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Custom Current Time Indicator */
+.custom-current-time-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dashed #28a745; /* Green dashed line */
+  pointer-events: none; /* Allows clicks to pass through */
+  z-index: 10; /* Ensure it's above other elements */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Enhance event appearance */
+.rbc-event {
+  font-size: 0.9em;
+  padding: 2px 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Optional: Customize time gutter (left sidebar with time slots) */
+.rbc-time-gutter {
+  width: 80px;
+}
+
+.rbc-time-slot {
+  height: 40px; /* Adjust based on step and timeslots */
+}
+
+/* Optional: Hide default current time indicator */
+.rbc-current-time-indicator {
+  background-color: transparent;
+}
+
+/* Custom Event Styling */
+.custom-event {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+  padding: 2px 4px;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.event-title {
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.event-description {
+  font-size: 0.8em;
+  margin-bottom: 4px;
+}
+
+.custom-event:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .rbc-time-gutter {
+    width: 60px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .rbc-toolbar-label {
+    font-size: 1em;
+  }
+
+  .rbc-btn-group button {
+    padding: 4px 8px;
+    font-size: 0.9em;
+  }
+
+  .rbc-event {
+    font-size: 0.8em;
   }
 }
